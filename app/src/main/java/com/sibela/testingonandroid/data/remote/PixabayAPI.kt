@@ -13,5 +13,5 @@ interface PixabayAPI {
         @Query("q") searchQuery: String,
         @Query("key") apiKey: String = BuildConfig.API_KEY
     ): Response<ImageResponse>
-    
+
 }
