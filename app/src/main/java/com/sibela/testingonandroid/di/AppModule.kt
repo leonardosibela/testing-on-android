@@ -2,10 +2,13 @@ package com.sibela.testingonandroid.di
 
 import android.content.Context
 import androidx.room.Room
+import com.sibela.testingonandroid.data.local.ShoppingDao
 import com.sibela.testingonandroid.data.local.ShoppingItemDatabase
 import com.sibela.testingonandroid.data.remote.PixabayAPI
 import com.sibela.testingonandroid.other.Constants.BASE_URL
 import com.sibela.testingonandroid.other.Constants.DATABASE_NAME
+import com.sibela.testingonandroid.repositories.DefaultShoppingRepository
+import com.sibela.testingonandroid.repositories.ShoppingRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,6 +27,10 @@ object AppModule {
     fun provideShoppingItemDatabase(@ApplicationContext context: Context) =
         Room.databaseBuilder(context, ShoppingItemDatabase::class.java, DATABASE_NAME).build()
 
+    @Provides
+    @Singleton
+    fun provideDefaultShoppingRepository(dao: ShoppingDao, api: PixabayAPI) =
+        DefaultShoppingRepository(dao, api) as ShoppingRepository
 
     @Provides
     @Singleton
