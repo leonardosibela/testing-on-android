@@ -1,25 +1,17 @@
 package com.sibela.testingonandroid.ui
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.common.truth.Truth.assertThat
-import com.sibela.testingonandroid.MainCoroutineRule
+import com.sibela.testingonandroid.BaseTest
 import com.sibela.testingonandroid.getOrAwaitValueTest
 import com.sibela.testingonandroid.other.Constants
 import com.sibela.testingonandroid.other.Status
 import com.sibela.testingonandroid.repositories.FakeShoppingRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
-class ShoppingViewModelTest {
-
-    @get:Rule
-    var instantTaskExecutorRule = InstantTaskExecutorRule()
-
-    @get:Rule
-    var mainCoroutineRule = MainCoroutineRule()
+class ShoppingViewModelTest : BaseTest() {
 
     private lateinit var viewModel: ShoppingViewModel
 
