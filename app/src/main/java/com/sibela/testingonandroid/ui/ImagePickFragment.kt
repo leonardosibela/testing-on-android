@@ -13,10 +13,10 @@ import kotlinx.android.synthetic.main.fragment_image_pick.*
 import javax.inject.Inject
 
 class ImagePickFragment @Inject constructor(
-    private val imageAdapter: ImageAdapter
+    val imageAdapter: ImageAdapter
 ) : Fragment(R.layout.fragment_image_pick) {
 
-    private lateinit var viewModel: ShoppingViewModel
+    lateinit var viewModel: ShoppingViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
