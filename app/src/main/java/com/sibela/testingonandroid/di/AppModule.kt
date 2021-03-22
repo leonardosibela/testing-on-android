@@ -2,6 +2,9 @@ package com.sibela.testingonandroid.di
 
 import android.content.Context
 import androidx.room.Room
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.sibela.testingonandroid.R
 import com.sibela.testingonandroid.data.local.ShoppingDao
 import com.sibela.testingonandroid.data.local.ShoppingItemDatabase
 import com.sibela.testingonandroid.data.remote.PixabayAPI
@@ -45,6 +48,12 @@ object AppModule {
         .build()
         .create(PixabayAPI::class.java)
 
-
+    @Provides
+    @Singleton
+    fun provideGlideInstance(@ApplicationContext context: Context) =
+        Glide.with(context).setDefaultRequestOptions(
+            RequestOptions()
+                .placeholder(R.drawable.ic_image)
+        )
 
 }
